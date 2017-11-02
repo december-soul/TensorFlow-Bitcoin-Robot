@@ -4,6 +4,7 @@ import requests
 import matplotlib.pyplot as plt
 import time
 import datetime
+import dateutil.parser
 from mpl_toolkits.mplot3d import Axes3D
 
 def get_trades():
@@ -13,8 +14,8 @@ def get_trades():
     date=[]
     price=[]
     amount=[]
-    for trade in trades:
-        date.append(str(time.mktime(datetime.datetime.strptime(trade['TimeStamp'], "%Y/%m/%d/").timetuple())))
+    for trade in trades['result']:
+        date.append(str(time.mktime(dateutil.parser.parse(trade['TimeStamp']).timetuple())))
         price.append(trade['Price'])
         amount.append(trade['Total'])
     return date,price,amount

@@ -3,7 +3,6 @@ import json
 import requests
 import matplotlib.pyplot as plt
 import time
-import datetime
 import dateutil.parser
 from mpl_toolkits.mplot3d import Axes3D
 
